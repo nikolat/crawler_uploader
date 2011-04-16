@@ -1,0 +1,4 @@
+charset,UTF-8
+type,ghost
+name,クローラ＆ロダ
+directory,crawler_uploader

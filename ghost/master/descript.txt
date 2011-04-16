@@ -1,0 +1,12 @@
+charset,UTF-8
+type,ghost
+name,クローラ＆ロダ
+sakura.name,クローラ
+kero.name,ロダ
+icon,icon.ico
+balloon,cypress
+shiori,dnproxy.dll
+sstp.allowunspecifiedsend,0
+craftman,Don
+craftmanurl,http://sosiremi.appspot.com/ghost/crawler_uploader/
+homeurl,https://sosiremi.appspot.com/ghost/crawler_uploader/

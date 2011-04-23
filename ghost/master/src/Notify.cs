@@ -21,7 +21,7 @@ namespace Ukagaka.NET
 			{
 				mi.Invoke(this, null);
 			}
-			catch (System.NullReferenceException)
+			catch (NullReferenceException)
 			{
 			}
 		}
@@ -48,12 +48,16 @@ namespace Ukagaka.NET
 			this.s.ghostexlist = new List<string>();
 			foreach (string r in this._reference)
 			{
-				this.s.ghostexlist.Add(r.Split('\u0001')[0]);
+				this.s.ghostexlist.Add(r.Split('\x01')[0]);
 			}
 		}
 		public void On_installedghostname()
 		{
 			this.s.installedghostlist = new List<string>(this._reference);
+		}
+		public void On_installedheadlinename()
+		{
+			this.s.installedheadlinelist = new List<string>(this._reference);
 		}
 	}
 }

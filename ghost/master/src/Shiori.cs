@@ -28,6 +28,7 @@ namespace Ukagaka.NET
 		public string uniqueID;
 		public List<string> ghostexlist;
 		public List<string> installedghostlist;
+		public List<string> installedheadlinelist;
 		public string sakura_name;
 		public string baseware_name;
 		public string baseware_version;

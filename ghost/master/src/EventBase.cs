@@ -89,7 +89,7 @@ namespace Ukagaka.NET
 			int len = size - System.Text.Encoding.GetEncoding("Shift_JIS").GetByteCount(text);
 			if (len > 0)
 			{
-				r = text.PadRight(len);
+				r = text + "".PadRight(len / 2, '　') + "".PadRight(len % 2, ' ');
 			}
 			return r;
 		}
@@ -169,8 +169,8 @@ namespace Ukagaka.NET
 	{
 		public static string EscapeAllTags(string text)
 		{
-			const string ESCAPE_TAG1 = "\u0003\u0003";
-			const string ESCAPE_TAG2 = "\u0004\u0004";
+			const string ESCAPE_TAG1 = "\x03\x03";
+			const string ESCAPE_TAG2 = "\x04\x04";
 			string r = text;
 			r = r.Replace(@"\\", ESCAPE_TAG1);
 			r = r.Replace(@"\%", ESCAPE_TAG2);

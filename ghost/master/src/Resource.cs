@@ -21,7 +21,7 @@ namespace Ukagaka.NET
 				object o = mi.Invoke(this, null);
 				value = (string)o;
 			}
-			catch (System.NullReferenceException)
+			catch (NullReferenceException)
 			{
 			}
 			return value;
@@ -80,10 +80,10 @@ namespace Ukagaka.NET
 		{
 			string value = "";
 			List<string[]> sites = new List<string[]>();
-			sites.Add(new string[] { "Disc-2", "http://disc2.s56.xrea.com/", "-" });
+			sites.Add(new string[] { "Disc-2", "http://disc2.s56.xrea.com/", "disc_2.gif" });
 			foreach (string[] site in sites)
 			{
-				value += string.Join("\u0001", site) + ("\u0001").ToString() + ("\u0002").ToString();
+				value += string.Join("\x01", site) + "\x01\x02";
 			}
 			return value;
 		}
@@ -91,14 +91,14 @@ namespace Ukagaka.NET
 		{
 			string value = "";
 			List<string[]> sites = new List<string[]>();
-			sites.Add(new string[] { "SiReFaSo - 伺かゴースト更新フィード", "http://sirefaso.appspot.com/", "-" });
+			sites.Add(new string[] { "SiReFaSo - 伺かゴースト更新フィード", "http://sirefaso.appspot.com/", "sirefaso.png" });
 			sites.Add(new string[] { "SoSiReMi - 伺かアップローダー", "http://sosiremi.appspot.com/", "-" });
 			sites.Add(new string[] { "-", "-", "-" });
-			sites.Add(new string[] { "narをアップするところ", "http://narup.if.land.to/sr_data.cgi", "-" });
-			sites.Add(new string[] { "パン耳手帳", "http://www.s-ht.com/~pan/", "-" });
+			sites.Add(new string[] { "narをアップするところ", "http://narup.if.land.to/sr_data.cgi", "nar_up.pnr" });
+			sites.Add(new string[] { "パン耳手帳", "http://www.s-ht.com/~pan/", "viprpg.png" });
 			foreach (string[] site in sites)
 			{
-				value += string.Join("\u0001", site) + ("\u0001").ToString() + ("\u0002").ToString();
+				value += string.Join("\x01", site) + "\x01\x02";
 			}
 			return value;
 		}
@@ -114,7 +114,7 @@ namespace Ukagaka.NET
 			sites.Add(new string[] { "The Web KANZAKI", "http://www.kanzaki.com/", "-" });
 			foreach (string[] site in sites)
 			{
-				value += string.Join("\u0001", site) + ("\u0001").ToString() + ("\u0002").ToString();
+				value += string.Join("\x01", site) + "\x01\x02";
 			}
 			return value;
 		}

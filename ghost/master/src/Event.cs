@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Ukagaka.NET.Events;
 
 namespace Ukagaka.NET
 {
@@ -21,7 +22,7 @@ namespace Ukagaka.NET
 				object o = mi.Invoke(this, null);
 				value = (string)o;
 			}
-			catch (System.NullReferenceException)
+			catch (NullReferenceException)
 			{
 			}
 			return value;
@@ -43,6 +44,8 @@ namespace Ukagaka.NET
 			t.Add(@"\1\s[100]\0\s[5]やあ、\_w[500]%username。\_w[1000]\1\s[105]ごきげんうるわしゅう。\e");
 			t.Add(@"\1\s[100]\0\s[2]あ、\_w[500]%username。\_w[500]\s[5]リファラ見せてよ。\_w[1000]\1\s[104]お行儀が悪いわよ。\e");
 			t.Add(@"\1\s[100]\0\s[5]このクッキーおいしいね。\_w[500]\s[0]%usernameも食べる？\_w[1000]\1\s[103]…あとでブラウザから削除しておいてくださいね。\e");
+			t.Add(@"\1\s[999]\0\s[999]お姉ちゃん、\_w[500]これはどう？\_w[1000]\1や、\_w[500]やめて、\_w[500]お願い…。\_w[1000]\0\n\n[half]じれったいなぁ。\_w[1000]ボクが優しく入れてあげるよ。\_w[1000]\1\n\n[half]だ、\_w[500]ダメ！\_w[500]そんな大きいの、\_w[500]入らない…！\_w[1500]\1\s[101]\0\s[2]\n\n[half]あれ？\_w[1000]%username、\_w[500]いたの？\_w[1000]\1\s[104]\n\n[half]%selfname、\_w[500]大きなファイルは分割して保存してるのよ。\_w[1000]無理に入れようとしないで。\e");
+			t.Add(@"\1\s[100]\0\s[7]合言葉を言え！！\_w[1000]\1\s[104]意味もなくパスワードかけるんじゃないの。\e");
 			return t[(new Random()).Next(t.Count)];
 		}
 		public string OnShellChanging()
@@ -381,7 +384,7 @@ namespace Ukagaka.NET
 		public string OnUserInput()
 		{
 			string value = "";
-			Ukagaka.NET.OnUserInput oo = new Ukagaka.NET.OnUserInput(this.s, this.header);
+			OnUserInput oo = new OnUserInput(this.s, this.header);
 			Type t = oo.GetType();
 			MethodInfo mi = t.GetMethod(this.reference(0));
 			try
@@ -389,7 +392,7 @@ namespace Ukagaka.NET
 				object o = mi.Invoke(oo, null);
 				value = (string)o;
 			}
-			catch (System.NullReferenceException)
+			catch (NullReferenceException)
 			{
 			}
 			return value;
@@ -397,7 +400,7 @@ namespace Ukagaka.NET
 		public string OnKeyPress()
 		{
 			string value = "";
-			Ukagaka.NET.OnKeyPress oo = new Ukagaka.NET.OnKeyPress(this.s, this.header);
+			OnKeyPress oo = new OnKeyPress(this.s, this.header);
 			Type t = oo.GetType();
 			MethodInfo mi = t.GetMethod(this.reference(0));
 			try
@@ -405,7 +408,7 @@ namespace Ukagaka.NET
 				object o = mi.Invoke(oo, null);
 				value = (string)o;
 			}
-			catch (System.NullReferenceException)
+			catch (NullReferenceException)
 			{
 			}
 			return value;
@@ -413,7 +416,7 @@ namespace Ukagaka.NET
 		public string OnChoiceSelect()
 		{
 			string value = "";
-			Ukagaka.NET.OnChoiceSelect oo = new Ukagaka.NET.OnChoiceSelect(this.s, this.header);
+			OnChoiceSelect oo = new OnChoiceSelect(this.s, this.header);
 			Type t = oo.GetType();
 			MethodInfo mi = t.GetMethod(this.reference(0));
 			try
@@ -421,7 +424,7 @@ namespace Ukagaka.NET
 				object o = mi.Invoke(oo, null);
 				value = (string)o;
 			}
-			catch (System.NullReferenceException)
+			catch (NullReferenceException)
 			{
 			}
 			return value;
@@ -429,7 +432,7 @@ namespace Ukagaka.NET
 		public string OnChoiceSelectEx()
 		{
 			string value = "";
-			Ukagaka.NET.OnChoiceSelectEx oo = new Ukagaka.NET.OnChoiceSelectEx(this.s, this.header);
+			OnChoiceSelectEx oo = new OnChoiceSelectEx(this.s, this.header);
 			Type t = oo.GetType();
 			MethodInfo mi = t.GetMethod(this.reference(1));
 			try
@@ -437,7 +440,7 @@ namespace Ukagaka.NET
 				object o = mi.Invoke(oo, null);
 				value = (string)o;
 			}
-			catch (System.NullReferenceException)
+			catch (NullReferenceException)
 			{
 			}
 			return value;
@@ -457,7 +460,7 @@ namespace Ukagaka.NET
 			}
 			else
 			{
-				Ukagaka.NET.OnAnchorSelect oo = new Ukagaka.NET.OnAnchorSelect(this.s, this.header);
+				OnAnchorSelect oo = new OnAnchorSelect(this.s, this.header);
 				Type t = oo.GetType();
 				MethodInfo mi = t.GetMethod(this.reference(0));
 				try
@@ -465,7 +468,7 @@ namespace Ukagaka.NET
 					object o = mi.Invoke(oo, null);
 					value = (string)o;
 				}
-				catch (System.NullReferenceException)
+				catch (NullReferenceException)
 				{
 				}
 			}
@@ -480,7 +483,7 @@ namespace Ukagaka.NET
 		public string OnMouseDoubleClick()
 		{
 			string value = "";
-			Ukagaka.NET.OnMouseDoubleClick oo = new Ukagaka.NET.OnMouseDoubleClick(this.s, this.header);
+			OnMouseDoubleClick oo = new OnMouseDoubleClick(this.s, this.header);
 			Type t = oo.GetType();
 			MethodInfo mi;
 			object o;
@@ -490,7 +493,7 @@ namespace Ukagaka.NET
 				o = mi.Invoke(oo, null);
 				value = (string)o;
 			}
-			catch (System.NullReferenceException)
+			catch (NullReferenceException)
 			{
 				mi = t.GetMethod("MouseDoubleClick" + this.reference(3));
 				try
@@ -498,7 +501,7 @@ namespace Ukagaka.NET
 					o = mi.Invoke(oo, null);
 					value = (string)o;
 				}
-				catch (System.NullReferenceException)
+				catch (NullReferenceException)
 				{
 				}
 			}
@@ -506,6 +509,10 @@ namespace Ukagaka.NET
 		}
 		public string OnMouseWheel()
 		{
+			if (this.referenceInt(3) != 0)
+			{
+				return "";
+			}
 			string value;
 			int aitalkinterval = this.s.aitalkinterval;
 			if ((this.referenceInt(2) > 0) && (aitalkinterval < 360))
@@ -551,7 +558,7 @@ namespace Ukagaka.NET
 				if (this.s.stroke[side] > threshold)
 				{
 					this.s.stroke[side] = 0;
-					Ukagaka.NET.OnMouseMove oo = new Ukagaka.NET.OnMouseMove(this.s, this.header);
+					OnMouseMove oo = new OnMouseMove(this.s, this.header);
 					Type t = oo.GetType();
 					MethodInfo mi;
 					object o;
@@ -561,7 +568,7 @@ namespace Ukagaka.NET
 						o = mi.Invoke(oo, null);
 						value = (string)o;
 					}
-					catch (System.NullReferenceException)
+					catch (NullReferenceException)
 					{
 						mi = t.GetMethod("MouseMove" + this.reference(3));
 						try
@@ -569,7 +576,7 @@ namespace Ukagaka.NET
 							o = mi.Invoke(oo, null);
 							value = (string)o;
 						}
-						catch (System.NullReferenceException)
+						catch (NullReferenceException)
 						{
 						}
 					}
@@ -594,7 +601,7 @@ namespace Ukagaka.NET
 		}
 		public string OnDive()
 		{
-			string url = "http://www.google.com/images?q=" + this.reference(0);
+			string url = "http://www.google.com/images?q=" + Uri.EscapeUriString(this.reference(0));
 			return @"\1\s[100]\0\s[7]とうっ！！\![open,browser," + AYATemplate.EscapeText(url) + "]";
 		}
 		public string OnHitThunder()
@@ -624,10 +631,27 @@ namespace Ukagaka.NET
 		{
 			string value = "";
 			DateTime now = DateTime.Now;
-			if (now.Minute == 0)
+			switch (now.Minute)
 			{
-				this.s.AiTalkCount = 0;
-				value = @"\1\s[100]\0\s[0]" + now.Hour	+ @"時だ。\_w[500]巡回にいってくるね。\_w[500]\s[999]\_w[500]\1\s[105]いってらっしゃい。\e";
+				case 0:
+					this.s.AiTalkCount = 0;
+					value = @"\1\s[100]\0\s[0]" + now.Hour + @"時だ。\_w[500]巡回にいってくるね。\_w[500]\s[999]\_w[500]\1\s[105]いってらっしゃい。\e";
+					break;
+				case 2:
+					string headlinename = "SiReFaSo - 伺かゴースト更新フィード";
+					if (this.s.installedheadlinelist.Contains(headlinename))
+					{
+						value = @"\1\s[100]\0\s[0]更新状況だよ。\_w[500]\![execute,headline," + headlinename + @"]\e";
+					}
+					else
+					{
+						value = @"\1\s[100]\0\s[0]%username、\_w[500]\s[5]ボクのフィードを購読してみない？\n\n[half]\_w[500]\_q"
+							+ AYATemplate.MenuItem("購読する", "InstallRSS", "http://sirefaso.appspot.com/update.atom") + @"\n"
+							+ AYATemplate.MenuItem("遠慮しとく", "Menu_CANCEL") + @"\e";
+					}
+					break;
+				default:
+					break;
 			}
 			return value;
 		}
@@ -647,203 +671,6 @@ namespace Ukagaka.NET
 		}
 	}
 
-	class OnUserInput : EventBase
-	{
-		public OnUserInput(Shiori s, Dictionary<string, string> header) : base(s, header)
-		{
-		}
-	}
-	class OnKeyPress : EventBase
-	{
-		public OnKeyPress(Shiori s, Dictionary<string, string> header) : base(s, header)
-		{
-		}
-
-		public string r()
-		{
-			return @"\![reload,shiori]\1\s[100]\0\s[0]リロードしたよ。\e";
-		}
-		public string t()
-		{
-			this.s.AiTalkCount = 0;
-			return UserDictionary.RandomTalk();
-		}
-	}
-	class OnChoiceSelect : EventBase
-	{
-		public OnChoiceSelect(Shiori s, Dictionary<string, string> header) : base(s, header)
-		{
-		}
-
-		public string Menu_CANCEL()
-		{
-			return @"\1\s[100]\0\s[0]\e";
-		}
-		public string Menu_TALK()
-		{
-			this.s.AiTalkCount = 0;
-			return UserDictionary.RandomTalk();
-		}
-		public string OpenMailer()
-		{
-			return @"\![open,mailer]";
-		}
-	}
-	class OnChoiceSelectEx : EventBase
-	{
-		public OnChoiceSelectEx(Shiori s, Dictionary<string, string> header) : base(s, header)
-		{
-		}
-		public string GOYAUTIL_InstallChange()
-		{
-			return @"\![change," + AYATemplate.EscapeText(this.reference(3)) + "," + AYATemplate.EscapeText(this.reference(2)) + "]";
-		}
-		public string GOYAUTIL_InstallCall()
-		{
-			return @"\![call,ghost," + AYATemplate.EscapeText(this.reference(2)) + "]";
-		}
-	}
-	class OnAnchorSelect : EventBase
-	{
-		public OnAnchorSelect(Shiori s, Dictionary<string, string> header) : base(s, header)
-		{
-		}
-	}
-	class OnMouseDoubleClick : EventBase
-	{
-		public OnMouseDoubleClick(Shiori s, Dictionary<string, string> header) : base(s, header)
-		{
-		}
-
-		public string MouseDoubleClick0()
-		{
-			//string value;
-			//value = @"■メニュー\n\n";
-			//value += AYATemplate.MenuItem("何か話して", "Menu_TALK") + @"\n\n";
-			//value += AYATemplate.MenuItem("キャンセル", "Menu_CANCEL");
-			//value = @"\1\s[100]\0\s[0]\_q" + value + @"\e";
-			//return value;
-			this.s.AiTalkCount = 0;
-			return UserDictionary.RandomTalk();
-		}
-		public string MouseDoubleClick0Head()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\1\s[100]\0\s[7]そこはボタンじゃない！\e");
-			t.Add(@"\1\s[100]\0\s[7]F5連打はダメ！\e");
-			t.Add(@"\1\s[100]\0\s[9]API叩くときはもっと優しくお願い。\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseDoubleClick0Face()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\1\s[100]\0\s[5]思わずクリックしたくなるぷにぷにお肌！\_w[1000]\1\s[105]完璧なアフォーダンスね。\e");
-			t.Add(@"\1\s[100]\0\s[5]きれいなマークアップでしょ？\_w[1000]\1\s[105]機械可読性は大切よね。\e");
-			t.Add(@"\1\s[100]\0\s[0]画像はあまり使ってないよ。\_w[1000]\1\s[100]CSSだけでもだいぶオシャレが楽しめるものね。\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseDoubleClick0Bust()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\1\s[100]\0\s[2]わわ、\_w[500]何するんだ！\_w[1000]\1\s[108]ボタンクリック時のエフェクトを確認してるんですよね。\_w[1000]\n\n[half]\0\s[7]\n\n[half]そういう問題じゃない！\e");
-			t.Add(@"\1\s[100]\0\s[1]な…、\_w[500]何？\_w[1000]\1\s[105]クリック率を上げる施策の効果じゃない？\_w[1000]\0\s[7]\n\n[half]そんな施策いらない！\e");
-			t.Add(@"\1\s[100]\0\s[3]ちょ、\_w[500]ちょっと、\_w[500]%username、\_w[500]\nそのページはまだ準備が…。\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseDoubleClick1()
-		{
-			this.s.AiTalkCount = 0;
-			return UserDictionary.RandomTalk();
-		}
-		public string MouseDoubleClick1Head()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\0\s[0]\1\s[104]HEADも叩き過ぎは過負荷の元です。\e");
-			t.Add(@"\0\s[0]\1\s[106]ヘッダのロゴはトップへのリンクと決まっているのです。\e");
-			t.Add(@"\0\s[0]\1\s[103]この髪では圧縮効率が悪いですか？\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseDoubleClick1Face()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\0\s[0]\1\s[105]表示崩れには気をつけています。\e");
-			t.Add(@"\0\s[0]\1\s[106]過剰な装飾は好きではありませんので…。\e");
-			t.Add(@"\0\s[0]\1\s[101]この配色、\_w[500]%usernameのお気に召しますでしょうか…。\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseDoubleClick1Bust()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\0\s[0]\1\s[102]っ！\_w[1000]\n\s[103]…\_w[1500]\s[101]\_q HTTP/1.1 200 OK (///)\_q\_w[1000]\0\s[2]受理しちゃうの！？");
-			t.Add(@"\0\s[0]\1\s[101]…%usernameがアクセスしたいと仰るなら、\_w[500]私…。\e");
-			t.Add(@"\0\s[0]\1\s[101]ま、\_w[500]まだメンテナンスの時間では…。\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-	}
-	class OnMouseMove : EventBase
-	{
-		public OnMouseMove(Shiori s, Dictionary<string, string> header) : base(s, header)
-		{
-		}
-
-		public string MouseMove0()
-		{
-			return "";
-		}
-		public string MouseMove0Head()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\1\s[100]\0\s[5]えへへー。\e");
-			t.Add(@"\1\s[100]\0\s[5]ボクが出来る子だから褒めてくれてるの？\e");
-			t.Add(@"\1\s[100]\0\s[6]おだてても巡回は決まった時間以外はしないよ。\_w[1000]\1\s[105]他所のサーバーにご迷惑にならないよう、\_w[500]配慮が必要だものね。\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseMove0Face()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\1\s[100]\0\s[2]ボクの顔に何か付いてる？\e");
-			t.Add(@"\1\s[100]\0\s[4]スタイルシートがはがれちゃうよー。\e");
-			t.Add(@"\1\s[100]\0\s[5]リキッドでしょ。\_w[500]自慢のレイアウトなんだ。\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseMove0Bust()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\1\s[100]\0\s[7]ぼ、\_w[200]ボクのセキュリティは堅いんだからねっ！\_w[1000]\1\s[108]本当に？\_w[1000]\0\s[2]\n\n[half]きゃっ！\_w[500]\s[1]そ、\_w[500]そこはダメ…！\_w[1000]\1\s[105]\n\n[half]うふふ。\e");
-			t.Add(@"\1\s[100]\0\s[3]おかしなアクセス繰り返したら、\_w[500]IPごと弾いちゃうからね？\e");
-			t.Add(@"\1\s[100]\0\s[9]言ってくれればナビゲーションするから！\_w[500]\n何も隠してないから！\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseMove1()
-		{
-			return "";
-		}
-		public string MouseMove1Head()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\0\s[0]\1\s[106]ん…。\e");
-			t.Add(@"\0\s[0]\1\s[101]%username…。\e");
-			t.Add(@"\0\s[0]\1\s[101]ど、\_w[500]どうぞごゆるりと…。\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseMove1Face()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\0\s[0]\1\s[103]は、\_w[500]恥ずかしいので…、\_w[500]素のHTMLをそんなに見つめないでください…。\e");
-			t.Add(@"\0\s[0]\1\s[103]な、\_w[500]何かお探しでしたら、\_w[500]検索をお手伝いしますが…。\e");
-			t.Add(@"\0\s[0]\1\s[105]隠しテキストなどございません。\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-		public string MouseMove1Bust()
-		{
-			List<string> t = new List<string>();
-			t.Add(@"\0\s[0]\1\s[101]あ、\_w[500]あの、\_w[500]そういうことは暗号化された通信でこっそりと…。\_w[1000]\0\s[2]何をするつもりなの！？\e");
-			t.Add(@"\0\s[0]\1\s[103]…もう少し大きいほうがアクセシビリティ的によろしいでしょうか。\_w[1000]\0\s[7]そんな必要ない！\e");
-			t.Add(@"\0\s[0]\1\s[101]…ダウンロードしますか？\_w[1000]\0\s[2]何を！？\e");
-			return t[(new Random()).Next(t.Count)];
-		}
-	}
-
 	class UserDictionary
 	{
 		public static string RandomTalk()
@@ -854,6 +681,9 @@ namespace Ukagaka.NET
 			t.Add(@"\0\s[0]\1\s[102]イベントの前日は更新の問い合わせが多いわね…。\_w[1000]\0\s[5]ボクたちも大忙しだね。\e");
 			t.Add(@"\1\s[100]\0\s[2]あ！\_w[500]Googlebot！\_w[1000]\s[6]\n検索順位が上がりますように…。\_w[1000]\1\s[104]流れ星じゃないのよ。\e");
 			t.Add(@"\0\s[0]\1\s[103]これはどこにしまおうかしら…。\_w[1000]\0\s[0]更新ファイルを整理してるの？\_w[1000]\1\s[105]\n\n[half]リクエストが来たら早く取り出せるように、\_w[500]インデックスしてるのよ。\e");
+			t.Add(@"\1\s[100]\0\s[2]お姉ちゃん、\_w[500]このアクセスログみてみて。\_w[1000]\1\s[102]何これ、\_w[500]全部同じ所からじゃないの。\_w[1000]\0\s[5]\n\n[half]ボクのファンかな？\_w[1000]\1\s[104]\n\n[half]…攻撃受けてるわよ。\_w[1000]\0\s[2]\n\n[half]ええーーー！？\e");
+			t.Add(@"\0\s[0]\1\s[103]うーん…\_w[500]…\_w[500]、\_w[500]ダメね。\_w[1000]\0\s[0]お姉ちゃん、\_w[500]ZIP開かないの？\_w[1000]\s[5]貸して。\_w[1000]\1\s[102]\n\n[half]%selfname。\_w[1000]\0\n\n[half]（パキッ）\_w[500]はい。\_w[1000]\1\s[101]\n\n[half]あ、\_w[500]ありがと…。\e");
+			t.Add(@"\1\s[100]\0\s[5]ごめんくださーい！\_w[500]\nMozilla/4.0ですけどー！\_w[1000]\1\s[104]ウソはいけないわ。\e");
 			return t[(new Random()).Next(t.Count)];
 		}
 	}

@@ -14,6 +14,8 @@ kero.balloon.offsety,180
 
 //ウインドウ位置
 seriko.alignmenttodesktop,bottom
+//アルファチャンネル使用
+seriko.use_self_alpha,1
 
 //readme指定
 readme,readme.txt
@@ -42,3 +44,30 @@ menu.foreground.font.color.b,0
 menu.separator.color.r,127
 menu.separator.color.g,127
 menu.separator.color.b,127
+
+//着せ替え定義
+sakura.bindgroup1001.name,髪飾り,IE
+sakura.bindgroup1002.name,髪飾り,Firefox
+sakura.bindgroup1003.name,髪飾り,Opera
+sakura.bindgroup1004.name,髪飾り,Safari
+sakura.bindgroup1005.name,髪飾り,Google Chrome
+sakura.bindgroup1001.default,0
+
+sakura.menuitem1,1001
+sakura.menuitem2,1002
+sakura.menuitem3,1003
+sakura.menuitem4,1004
+sakura.menuitem5,1005
+
+kero.bindgroup1001.name,髪飾り,IE
+kero.bindgroup1002.name,髪飾り,Firefox
+kero.bindgroup1003.name,髪飾り,Opera
+kero.bindgroup1004.name,髪飾り,Safari
+kero.bindgroup1005.name,髪飾り,Google Chrome
+kero.bindgroup1001.default,0
+
+kero.menuitem1,1001
+kero.menuitem2,1002
+kero.menuitem3,1003
+kero.menuitem4,1004
+kero.menuitem5,1005

@@ -45,7 +45,9 @@ namespace Ukagaka.NET
 			t.Add(@"\1\s[100]\0\s[2]あ、\_w[500]%username。\_w[500]\s[5]リファラ見せてよ。\_w[1000]\1\s[104]お行儀が悪いわよ。\e");
 			t.Add(@"\1\s[100]\0\s[5]このクッキーおいしいね。\_w[500]\s[0]%usernameも食べる？\_w[1000]\1\s[103]…あとでブラウザから削除しておいてくださいね。\e");
 			t.Add(@"\1\s[999]\0\s[999]お姉ちゃん、\_w[500]これはどう？\_w[1000]\1や、\_w[500]やめて、\_w[500]お願い…。\_w[1000]\0\n\n[half]じれったいなぁ。\_w[1000]ボクが優しく入れてあげるよ。\_w[1000]\1\n\n[half]だ、\_w[500]ダメ！\_w[500]そんな大きいの、\_w[500]入らない…！\_w[1500]\1\s[101]\0\s[2]\n\n[half]あれ？\_w[1000]%username、\_w[500]いたの？\_w[1000]\1\s[104]\n\n[half]%selfname、\_w[500]大きなファイルは分割して保存してるのよ。\_w[1000]無理に入れようとしないで。\e");
-			t.Add(@"\1\s[100]\0\s[7]合言葉を言え！！\_w[1000]\1\s[104]意味もなくパスワードかけるんじゃないの。\e");
+			t.Add(@"\1\s[100]\0\s[7]合言葉を言え！！\_w[1000]\1\s[104]意味もなく認証かけるんじゃないの。\e");
+			t.Add(@"\1\s[100]\0\s[7]出たな！\_w[500]妖怪「文字化け」！\_w[1000]\1\s[104]%usernameじゃないの。\e");
+			t.Add(@"\1\s[100]\0\s[7]誰だ！？\_w[1000]\s[4]\nなんだ、\_w[500]%usernameか。\_w[1000]\s[1]\nトップページから入ってきてよ。\_w[1000]\n\1\s[104]どこから入ろうが%usernameの勝手でしょ。\e");
 			return t[(new Random()).Next(t.Count)];
 		}
 		public string OnShellChanging()
@@ -114,7 +116,12 @@ namespace Ukagaka.NET
 			List<string> t = new List<string>();
 			t.Add(@"\1\s[100]\0\s[0]サーバー落とすよー。\_w[500]\1\s[102]落としちゃだめ！\_w[500]\-");
 			t.Add(@"\1\s[106]\0\s[6]\_sdisplay: none;\_w[500]\-");
-			t.Add(@"\1\s[105]\0\s[5]%username、\_w[500]またね。\_w[500]\1\s[105]よい旅を。\_w[500]\-");
+			t.Add(@"\1\s[100]\0\s[5]%username、\_w[500]またね。\_w[500]\1\s[105]よい旅を。\_w[500]\-");
+			t.Add(@"\1\s[100]\0\s[5]ネットは一日一時間！\_w[500]\1\s[104]短すぎない？\_w[500]\-");
+			t.Add(@"\1\s[100]\0\s[7]バルス！\_w[500]\1\s[106]「閉じよ」の意。\_w[500]\-");
+			t.Add(@"\1\s[100]\0\s[6]ボクは、\_w[500]集め続ける。\_w[500]\1\s[106]私は、\_w[500]守り続ける。\_w[500]\-");
+			t.Add(@"\1\s[100]\0\s[6]Webは眠らない。\_w[500]\1\s[105]いつも、\_w[500]%usernameと共に。\_w[500]\-");
+			t.Add(@"\1\s[100]\0\s[6]古きもの、\_w[500]我に知恵を授け給え。\_w[500]\1\s[105]新しきもの、\_w[500]彼に喜びを与え給え。\_w[500]\-");
 			return t[(new Random()).Next(t.Count)];
 		}
 		public string OnCloseAll()
@@ -303,9 +310,24 @@ namespace Ukagaka.NET
 					string day = _datea.Length > 2 ? _datea[2] : "";
 					content = "[" + month + "/" + day + "]" + title;
 				}
-				value += @"\_a[" + url + @"]"
-					+ SHIORI3FW.EscapeAllTags(AYATemplate.MakeJustText(content, 46))
-					+ @"\_a\n";
+				// for sirefaso
+				if (this.reference(0).StartsWith("SiReFaSo"))
+				{
+					value += @"\_a[" + url + @"]"
+							+ SHIORI3FW.EscapeAllTags(AYATemplate.MakeJustText(content, 40))
+							+ @"\_a";
+					if (this.s.installedghostlist.Contains(title))
+					{
+						value += @" \__q[GOYAUTIL_InstallCallWithC," + AYATemplate.EscapeText(title) + @"]♪\__q";
+					}
+					value += @"\n";
+				}
+				else
+				{
+					value += @"\_a[" + url + @"]"
+						+ SHIORI3FW.EscapeAllTags(AYATemplate.MakeJustText(content, 46))
+						+ @"\_a\n";
+				}
 			}
 			value += @"\_n\n\n[half]";
 			value += AYATemplate.MenuItem("open browser", this.reference(1)) + @"\n";
@@ -631,27 +653,30 @@ namespace Ukagaka.NET
 		{
 			string value = "";
 			DateTime now = DateTime.Now;
-			switch (now.Minute)
+			if (now.Hour % 2 == 0)
 			{
-				case 0:
-					this.s.AiTalkCount = 0;
-					value = @"\1\s[100]\0\s[0]" + now.Hour + @"時だ。\_w[500]巡回にいってくるね。\_w[500]\s[999]\_w[500]\1\s[105]いってらっしゃい。\e";
-					break;
-				case 2:
-					string headlinename = "SiReFaSo - 伺かゴースト更新フィード";
-					if (this.s.installedheadlinelist.Contains(headlinename))
-					{
-						value = @"\1\s[100]\0\s[0]更新状況だよ。\_w[500]\![execute,headline," + headlinename + @"]\e";
-					}
-					else
-					{
-						value = @"\1\s[100]\0\s[0]%username、\_w[500]\s[5]ボクのフィードを購読してみない？\n\n[half]\_w[500]\_q"
-							+ AYATemplate.MenuItem("購読する", "InstallRSS", "http://sirefaso.appspot.com/update.atom") + @"\n"
-							+ AYATemplate.MenuItem("遠慮しとく", "Menu_CANCEL") + @"\e";
-					}
-					break;
-				default:
-					break;
+				switch (now.Minute)
+				{
+					case 0:
+						this.s.AiTalkCount = 0;
+						value = @"\1\s[100]\0\s[0]" + now.Hour + @"時だ。\_w[500]巡回にいってくるね。\_w[500]\s[999]\_w[500]\1\s[105]いってらっしゃい。\e";
+						break;
+					case 3:
+						string headlinename = "SiReFaSo - 伺かゴースト更新フィード";
+						if (this.s.installedheadlinelist.Contains(headlinename))
+						{
+							value = @"\1\s[100]\0\s[0]更新状況だよ。\_w[500]\![execute,headline," + headlinename + @"]\e";
+						}
+						else
+						{
+							value = @"\1\s[100]\0\s[0]%username、\_w[500]\s[5]ボクのフィードを購読してみない？\n\n[half]\_w[500]\_q"
+								+ AYATemplate.MenuItem("購読する", "InstallRSS", "http://sirefaso.appspot.com/update.atom") + @"\n"
+								+ AYATemplate.MenuItem("遠慮しとく", "Menu_CANCEL") + @"\e";
+						}
+						break;
+					default:
+						break;
+				}
 			}
 			return value;
 		}
@@ -684,6 +709,18 @@ namespace Ukagaka.NET
 			t.Add(@"\1\s[100]\0\s[2]お姉ちゃん、\_w[500]このアクセスログみてみて。\_w[1000]\1\s[102]何これ、\_w[500]全部同じ所からじゃないの。\_w[1000]\0\s[5]\n\n[half]ボクのファンかな？\_w[1000]\1\s[104]\n\n[half]…攻撃受けてるわよ。\_w[1000]\0\s[2]\n\n[half]ええーーー！？\e");
 			t.Add(@"\0\s[0]\1\s[103]うーん…\_w[500]…\_w[500]、\_w[500]ダメね。\_w[1000]\0\s[0]お姉ちゃん、\_w[500]ZIP開かないの？\_w[1000]\s[5]貸して。\_w[1000]\1\s[102]\n\n[half]%selfname。\_w[1000]\0\n\n[half]（パキッ）\_w[500]はい。\_w[1000]\1\s[101]\n\n[half]あ、\_w[500]ありがと…。\e");
 			t.Add(@"\1\s[100]\0\s[5]ごめんくださーい！\_w[500]\nMozilla/4.0ですけどー！\_w[1000]\1\s[104]ウソはいけないわ。\e");
+			t.Add(@"\1\s[100]\0\s[0]お姉ちゃん、\_w[500]NARが届いてるよ。\_w[1000]\1\s[102]…\_w[500]…\_w[500]！\_w[500]これは……。\_w[1000]\0\s[2]\n\n[half]カレンダープラグイン…？\_w[1000]\s[0]\nどうやって使うのこれ？\_w[1000]\1\s[103]\n\n[half]…見なかったことにしましょう。\_w[1000]\0\s[2]\n\n[half]え、\_w[500]何で！？\_w[1000]\nお姉ちゃん、\_w[500]カレンダーって何なの！？\e");
+			t.Add(@"\1\s[100]\0\s[5]今月の検索ワードの集計が出たよー。\_w[1000]\1\s[105]どんな検索ワードが多いのかしら？\_w[1000]\0\s[1]\n\n[half]…\_w[500]…\_w[500]…\_w[500]。\_w[1000]\1\s[101]\n\n[half]…\_w[500]…\_w[500]…\_w[500]。\_w[1000]\0\s[3]\n\n[half]た、\_w[500]たくさんアクセスあって良かったね。\_w[1000]\1\s[104]\n\n[half]エッチなフレーズばっかり…。\e");
+			t.Add(@"\1\s[100]\0\s[0]お姉ちゃん、\_w[500]クラウドって何？\_w[1000]\1\s[105]…雲よ。\_w[1000]\0\s[3]\n\n[half]そうじゃなくて\1\s[106]\n\n[half]雲なのよ。\e");
+			t.Add(@"\0\s[0]\1\s[105]うふふ…、\_w[500]可愛いわね。\_w[1000]\0\s[0]お姉ちゃん、\_w[500]何見てるの？\_w[1000]\1\n\n[half]%selfnameが初めて書いたHTML覚えてる？\_w[1000]\0\s[7]\n\n[half]ちょ、\_w[500]ちょっと！\_w[1000]\n人のキャッシュ勝手に見ないで！\e");
+			t.Add(@"\0\s[0]\1\s[107]%selfname！\_w[500]使ってないインスタンスは消しなさいって何度言えばわかるの！\_w[1000]\0\s[3]えー、\_w[500]そこまで節電しなくても…。\e");
+			t.Add(@"\1\s[100]\0\s[5]あ、\_w[500]お姉ちゃん、\_w[500]脆弱性みーっけ！\_w[1000]\1\s[102]%selfname！\_w[1000]\s[101]\n%usernameの前で恥ずかしいからやめて…。\e");
+			t.Add(@"\1\s[100]\0\s[0]お姉ちゃんの好きなタイプは？\_w[1000]\1\s[102]え、\_w[500]\s[101]急に言われても…。\_w[1000]\n%selfnameはどうなの？\_w[1000]\0\s[5]\n\n[half]ボクはやっぱりwebkitが好きだなー。\w[1000]\nレンダリングが綺麗だし。\_w[1000]\1\s[104]\n\n[half]何の話なの？\e");
+			t.Add(@"\1\s[100]\0\s[3]あれー？\_w[500]引き出しが開かないよ…。\_w[1000]\1\s[100]DataStoreの障害みたいね。\_w[1000]\s[105]\nしばらく待ちましょう。\_w[1000]\0\s[7]\n\n[half]ダメだよ、\_w[500]みんな待たせてるのに！\w[1000]\n(バキッ)\w[1000]\s[2]\nあーーーーー！！！\_w[1000]\n取っ手が壊れたーーーーー！！！\_w[1000]\1\s[104]\n\n[half](何て馬鹿力なの…。)\e");
+			t.Add(@"\1\s[100]\0\s[3]もっとダイエットしなきゃ…。\_w[1000]\1\s[102]%selfnameは十分細いじゃない。\_w[1000]\0\s[4]\n\n[half]スマートフォンに入りきらないんだよ…。\_w[1000]\1\s[104]\n\n[half]…厳しい時代よね。\e");
+			t.Add(@"\0\s[0]\1\s[100]%selfnameは将来、\_w[500]どんなサイトになりたいの？\_w[1000]\0\s[2]え？\_w[500]えっと…、\_w[500]\s[8]た、たくさんの人のお役に立てるサイトになりたいな！\_w[1000]\1\s[105]\n\n[half]%selfnameならきっとなれるわ。\_w[1000]\nがんばってね。\_w[1000]\0\s[4]\n\n[half]（今のボクじゃまだまだダメってことですか…。）\e");
+			t.Add(@"\0\s[0]\1\s[100]今月は転送量が厳しいわね…。\_w[1000]\0\s[2]あ、\_w[500]新しいサイト発見！\_w[1000]\s[5]\nどれどれ…。\_w[1000]\1\s[107]\n\n[half]そこ！\_w[1000]\n開けたら閉める！\_w[1000]\0\s[3]\n\n[half]ふえ！？\e");
+			t.Add(@"\1\s[100]\0\s[4]こないだのスパム、\_w[500]またウロウロしてるよ…。\_w[1000]\1\s[106]隙を見せてはダメよ。\_w[1000]\s[107]\n特に%selfnameはセキュリティ意識が…。\_w[500]\0\s[2]\n\n[half]あれ？\_w[500]お姉ちゃん、\_w[500]背中に変な落書きが…。\_w[1000]\1\s[102]\n\n[half]キャー！\_w[500]何これ！\_w[500]消して！\_w[500]早く！\e");
 			return t[(new Random()).Next(t.Count)];
 		}
 	}

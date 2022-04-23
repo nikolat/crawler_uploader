@@ -9,4 +9,4 @@ shiori,dnproxy.dll
 sstp.allowunspecifiedsend,0
 craftman,Don
 craftmanurl,http://sosiremi.appspot.com/ghost/crawler_uploader/
-homeurl,https://sosiremi.appspot.com/ghost/crawler_uploader/
+homeurl,http://sosiremi.appspot.com/ghost/crawler_uploader/

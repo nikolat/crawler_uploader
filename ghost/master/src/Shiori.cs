@@ -76,7 +76,7 @@ namespace Ukagaka.NET
 			this.strokeid = new Dictionary<int, string>();
 			// to save...
 			this.username = "マスター";
-			this.aitalkinterval = 180;
+			this.aitalkinterval = 240;
 		}
 
 		public string request(string req)

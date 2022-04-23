@@ -5,6 +5,11 @@ group,__disabled
 {
 	10,__parts
 	999,__parts
+	1001,__parts
+	1002,__parts
+	1003,__parts
+	1004,__parts
+	1005,__parts
 }
 
 group,クローラ
@@ -25,6 +30,8 @@ group,クローラ
 
 group,ロダ
 {
+	scope,1
+
 	100,素
 	101,照れ
 	102,驚き

@@ -11,11 +11,15 @@ namespace Ukagaka.NET.Events
 
 		public string GOYAUTIL_InstallChange()
 		{
-			return @"\![change," + AYATemplate.EscapeText(this.reference(3)) + "," + AYATemplate.EscapeText(this.reference(2)) + "]";
+			return @"\![change," + AYATemplate.EscapeText(this.reference(3)) + "," + AYATemplate.EscapeText(this.reference(2)) + @"]\e";
 		}
 		public string GOYAUTIL_InstallCall()
 		{
-			return @"\![call,ghost," + AYATemplate.EscapeText(this.reference(2)) + "]";
+			return @"\![call,ghost," + AYATemplate.EscapeText(this.reference(2)) + @"]\e";
+		}
+		public string GOYAUTIL_InstallCallWithC()
+		{
+			return @"\C\_q \_q\![call,ghost," + AYATemplate.EscapeText(this.reference(2)) + @"]\e";
 		}
 		public string InstallRSS()
 		{

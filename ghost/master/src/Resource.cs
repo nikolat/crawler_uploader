@@ -118,13 +118,17 @@ namespace Ukagaka.NET
 			}
 			return value;
 		}
-		// balloon tool tip
+		// balloon tooltip
 		public string balloon_tooltip()
 		{
 			string value = "";
 			if (Regex.IsMatch(this.reference(1), "^https?://"))
 			{
 				value = this.reference(1);
+			}
+			else if (this.reference(1).CompareTo("GOYAUTIL_InstallCallWithC") == 0)
+			{
+				value = "Call Ghost";
 			}
 			return value;
 		}

@@ -1,0 +1,8 @@
+.git\,noupdate,nonar
+.gitignore,noupdate,nonar
+updates2.dau,noupdate,nonar
+developer_options.txt,noupdate,nonar
+ghost\master\dnproxy_debug.dll,noupdate,nonar
+ghost\master\*.bak,noupdate,nonar
+ghost\master\updates2.dau,noupdate,nonar
+ghost\master\user.dll,noupdate,nonar

@@ -8,5 +8,5 @@ balloon,cypress
 shiori,dnproxy.dll
 sstp.allowunspecifiedsend,0
 craftman,Don
-craftmanurl,http://sosiremi.appspot.com/ghost/crawler_uploader/
-homeurl,http://sosiremi.appspot.com/ghost/crawler_uploader/
+craftmanurl,https://github.com/nikolat/crawler_uploader
+homeurl,https://raw.githubusercontent.com/nikolat/crawler_uploader/master/

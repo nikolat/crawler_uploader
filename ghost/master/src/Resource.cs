@@ -30,7 +30,7 @@ namespace Ukagaka.NET
 		// network update
 		public string homeurl()
 		{
-			return "http://sosiremi.appspot.com/ghost/crawler_uploader/";
+			return "https://raw.githubusercontent.com/nikolat/crawler_uploader/master/";
 		}
 		public string useorigin1()
 		{
@@ -91,11 +91,11 @@ namespace Ukagaka.NET
 		{
 			string value = "";
 			List<string[]> sites = new List<string[]>();
-			sites.Add(new string[] { "SiReFaSo - 伺かゴースト更新フィード", "http://sirefaso.appspot.com/", "sirefaso.png" });
-			sites.Add(new string[] { "SoSiReMi - 伺かアップローダー", "http://sosiremi.appspot.com/", "-" });
+			sites.Add(new string[] { "偽SiReFaSo", "http://nikolat.starfree.jp/sirefaso/", "-" });
+			sites.Add(new string[] { "偽SoSiReMi", "http://nikolat.starfree.jp/sosiremi/", "-" });
 			sites.Add(new string[] { "-", "-", "-" });
 			sites.Add(new string[] { "narをアップするところ", "http://narup.if.land.to/sr_data.cgi", "nar_up.pnr" });
-			sites.Add(new string[] { "パン耳手帳", "http://www.s-ht.com/~pan/", "viprpg.png" });
+			sites.Add(new string[] { "パン耳手帳", "", "viprpg.png" });
 			foreach (string[] site in sites)
 			{
 				value += string.Join("\x01", site) + "\x01\x02";
@@ -106,11 +106,9 @@ namespace Ukagaka.NET
 		{
 			string value = "";
 			List<string[]> sites = new List<string[]>();
+			sites.Add(new string[] { "MDN Web Docs", "https://developer.mozilla.org/en-US/", "-" });
 			sites.Add(new string[] { "World Wide Web Consortium (W3C)", "http://www.w3.org/", "-" });
 			sites.Add(new string[] { "-", "-", "-" });
-			sites.Add(new string[] { "Studying HTTP", "http://www.studyinghttp.net/", "-" });
-			sites.Add(new string[] { "W3G - World Wide Web Guide", "http://w3g.jp/", "-" });
-			sites.Add(new string[] { "HTML5.JP", "http://www.html5.jp/", "-" });
 			sites.Add(new string[] { "The Web KANZAKI", "http://www.kanzaki.com/", "-" });
 			foreach (string[] site in sites)
 			{

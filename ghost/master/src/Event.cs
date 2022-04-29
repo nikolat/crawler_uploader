@@ -310,24 +310,9 @@ namespace Ukagaka.NET
 					string day = _datea.Length > 2 ? _datea[2] : "";
 					content = "[" + month + "/" + day + "]" + title;
 				}
-				// for sirefaso
-				if (this.reference(0).StartsWith("SiReFaSo"))
-				{
-					value += @"\_a[" + url + @"]"
-							+ SHIORI3FW.EscapeAllTags(AYATemplate.MakeJustText(content, 40))
-							+ @"\_a";
-					if (this.s.installedghostlist.Contains(title))
-					{
-						value += @" \__q[GOYAUTIL_InstallCallWithC," + AYATemplate.EscapeText(title) + @"]♪\__q";
-					}
-					value += @"\n";
-				}
-				else
-				{
-					value += @"\_a[" + url + @"]"
-						+ SHIORI3FW.EscapeAllTags(AYATemplate.MakeJustText(content, 46))
-						+ @"\_a\n";
-				}
+				value += @"\_a[" + url + @"]"
+					+ SHIORI3FW.EscapeAllTags(AYATemplate.MakeJustText(content, 46))
+					+ @"\_a\n";
 			}
 			value += @"\_n\n\n[half]";
 			value += AYATemplate.MenuItem("open browser", this.reference(1)) + @"\n";
@@ -662,7 +647,7 @@ namespace Ukagaka.NET
 						value = @"\1\s[100]\0\s[0]" + now.Hour + @"時だ。\_w[500]巡回にいってくるね。\_w[500]\s[999]\_w[500]\1\s[105]いってらっしゃい。\e";
 						break;
 					case 3:
-						string headlinename = "SiReFaSo - 伺かゴースト更新フィード";
+						string headlinename = "偽SiReFaSo";
 						if (this.s.installedheadlinelist.Contains(headlinename))
 						{
 							value = @"\1\s[100]\0\s[0]更新状況だよ。\_w[500]\![execute,headline," + headlinename + @"]\e";
@@ -670,7 +655,7 @@ namespace Ukagaka.NET
 						else
 						{
 							value = @"\1\s[100]\0\s[0]%username、\_w[500]\s[5]ボクのフィードを購読してみない？\n\n[half]\_w[500]\_q"
-								+ AYATemplate.MenuItem("購読する", "InstallRSS", "http://sirefaso.appspot.com/update.atom") + @"\n"
+								+ AYATemplate.MenuItem("購読する", "InstallRSS", "http://nikolat.starfree.jp/sirefaso/rss2.xml") + @"\n"
 								+ AYATemplate.MenuItem("遠慮しとく", "Menu_CANCEL") + @"\e";
 						}
 						break;

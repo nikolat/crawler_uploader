@@ -655,7 +655,7 @@ namespace Ukagaka.NET
 						else
 						{
 							value = @"\1\s[100]\0\s[0]%username、\_w[500]\s[5]ボクのフィードを購読してみない？\n\n[half]\_w[500]\_q"
-								+ AYATemplate.MenuItem("購読する", "InstallRSS", "http://nikolat.starfree.jp/sirefaso/rss2.xml") + @"\n"
+								+ AYATemplate.MenuItem("購読する", "InstallRSS", "https://nikolat.github.io/sirefaso/rss2.xml") + @"\n"
 								+ AYATemplate.MenuItem("遠慮しとく", "Menu_CANCEL") + @"\e";
 						}
 						break;

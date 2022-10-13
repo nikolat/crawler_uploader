@@ -91,8 +91,8 @@ namespace Ukagaka.NET
 		{
 			string value = "";
 			List<string[]> sites = new List<string[]>();
-			sites.Add(new string[] { "偽SiReFaSo", "http://nikolat.starfree.jp/sirefaso/", "-" });
-			sites.Add(new string[] { "偽SoSiReMi", "http://nikolat.starfree.jp/sosiremi/", "-" });
+			sites.Add(new string[] { "偽SiReFaSo", "https://nikolat.github.io/sirefaso/", "-" });
+			sites.Add(new string[] { "偽SoSiReMi", "https://nikolat.github.io/sosiremi/", "-" });
 			sites.Add(new string[] { "-", "-", "-" });
 			sites.Add(new string[] { "narをアップするところ", "http://narup.if.land.to/sr_data.cgi", "nar_up.pnr" });
 			sites.Add(new string[] { "パン耳手帳", "", "viprpg.png" });

@@ -1,10 +1,11 @@
 charset,UTF-8
 type,shell
 name,master
+readme.charset,UTF-8
 
 craftman,Shuichi Motoi
 craftmanw,基終一
-craftmanurl,http://www.s-ht.com/~pan/
+craftmanurl,
 
 //バルーン位置
 sakura.balloon.offsetx,0
@@ -16,9 +17,6 @@ kero.balloon.offsety,180
 seriko.alignmenttodesktop,bottom
 //アルファチャンネル使用
 seriko.use_self_alpha,1
-
-//readme指定
-readme,readme.txt
 
 //メニュー定義
 menu.background.bitmap.filename,menu_background.png
@@ -46,7 +44,7 @@ menu.separator.color.g,127
 menu.separator.color.b,127
 
 //着せ替え定義
-sakura.bindgroup1001.name,髪飾り,IE
+sakura.bindgroup1001.name,髪飾り,Edge
 sakura.bindgroup1002.name,髪飾り,Firefox
 sakura.bindgroup1003.name,髪飾り,Opera
 sakura.bindgroup1004.name,髪飾り,Safari
@@ -59,7 +57,7 @@ sakura.menuitem3,1003
 sakura.menuitem4,1004
 sakura.menuitem5,1005
 
-kero.bindgroup1001.name,髪飾り,IE
+kero.bindgroup1001.name,髪飾り,Edge
 kero.bindgroup1002.name,髪飾り,Firefox
 kero.bindgroup1003.name,髪飾り,Opera
 kero.bindgroup1004.name,髪飾り,Safari

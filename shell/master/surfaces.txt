@@ -336,7 +336,7 @@ element0,base,element0000.png,0,0
 // 着せ替え定義用
 surface1001
 {
-element0,base,element-ie.png,0,0
+element0,base,element-edge.png,0,0
 }
 surface1002
 {

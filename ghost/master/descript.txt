@@ -1,12 +1,12 @@
 charset,UTF-8
 type,ghost
+shiori,dnproxy.dll
 name,クローラ＆ロダ
 sakura.name,クローラ
 kero.name,ロダ
-icon,icon.ico
-balloon,cypress
-shiori,dnproxy.dll
-sstp.allowunspecifiedsend,0
 craftman,Don
 craftmanurl,https://github.com/nikolat/crawler_uploader
 homeurl,https://raw.githubusercontent.com/nikolat/crawler_uploader/master/
+icon,icon.ico
+balloon,cypress
+readme.charset,UTF-8

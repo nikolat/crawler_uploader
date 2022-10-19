@@ -23,7 +23,7 @@ file,ghost/master/src/events/OnMouseDoubleClick.csb58b3e7fcd48ffc2b23ddcb05f3f3
 file,ghost/master/src/events/OnMouseMove.cscbf1cd37fdb40bf66a20883d87f84638size=3696date=2012-12-21T00:00:00
 file,ghost/master/src/events/OnUserInput.cs4575f0dfc14cf0f0bbbfe99a9e9c3487size=214date=2012-12-21T00:00:00
 file,install.txt1b162bef9248b5eefad1c55678892507size=79date=2012-12-21T00:00:00
-file,readme.txtf184053afa67d90b1f1bbb5a85a474a9size=2316date=2012-12-21T00:00:00
+file,readme.txtde747720842ee0c701f656912af089acsize=2273date=2012-12-21T00:00:00
 file,shell/master/descript.txt632614f85fdaa98ce78e3e37a63dd3fbsize=1750date=2012-12-21T00:00:00
 file,shell/master/element-chrome.png415f0f1a548aacd08fc70370a45c94d9size=2300date=2012-12-21T00:00:00
 file,shell/master/element-firefox.pngce7e11ae4a5dc3ce518d87262bbb4ea9size=2944date=2012-12-21T00:00:00

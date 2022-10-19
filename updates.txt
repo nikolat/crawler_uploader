@@ -1,4 +1,5 @@
 charset,UTF-8
+file,delete.txt0297e1a601733ba7ed6aed5a3cdcfdd9size=28date=2012-12-21T00:00:00
 file,ghost/master/Ukagaka.NET.Interfaces.dll779aa9d7498b66ab303f215a334dff86size=16384date=2012-12-21T00:00:00
 file,ghost/master/banner/disc_2.gif7d63dcabe97b3fd647014eb68b1425c2size=4363date=2012-12-21T00:00:00
 file,ghost/master/banner/nar_up.pnrb6274df8e4c63842773cbcc957de1422size=6825date=2012-12-21T00:00:00

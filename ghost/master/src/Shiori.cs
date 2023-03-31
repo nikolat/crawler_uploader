@@ -85,37 +85,50 @@ namespace Ukagaka.NET
 			Dictionary<string, string> header = Header.Parse(Header.Unescape(request));
 			string value = "";
 
-			if (header.ContainsKey("ID"))
-			{
-				if (header["_METHOD_"] == "GET")
-				{
-					if (header["ID"].StartsWith("On"))
-					{
+			Dictionary<string, string> response = new Dictionary<string, string>();
+			response["_PROTOCOL_"] = Shiori.PROTOCOL;
+			response["_VERSION_"]  = Shiori.VERSION;
+			response["Sender"]     = Shiori.SENDER;
+			response["Charset"]    = Shiori.CHARSET;
+			// SHIORIに対するリクエストでない場合
+			if (!header.ContainsKey("_COMMANDLINE_") || !(header["_PROTOCOL_"] == "SHIORI" && header["_VERSION_"] == "3.0")) {
+				response["_STATUS_"] = Protocol.STATUS_BAD_REQUEST;
+				response["_STRING_"] = Protocol.STRING_BAD_REQUEST;
+				return Header.Create(response);
+			}
+			// 未知のリクエスト
+			if (!(header["_METHOD_"] == "NOTIFY" || header["_METHOD_"] == "GET")) {
+				response["_STATUS_"] = Protocol.STATUS_BAD_REQUEST;
+				response["_STRING_"] = Protocol.STRING_BAD_REQUEST;
+				return Header.Create(response);
+			}
+			// セキュリティレベル="external"なら即返る
+			if (header.ContainsKey("SecurityLevel") && header["SecurityLevel"] == "external") {
+				response["_STATUS_"] = Protocol.STATUS_NO_CONTENT;
+				response["_STRING_"] = Protocol.STRING_NO_CONTENT;
+				return Header.Create(response);
+			}
+
+			if (header.ContainsKey("ID")) {
+				if (header["_METHOD_"] == "GET") {
+					if (header["ID"].StartsWith("On")) {
 						Event evt = new Event(this, header);
 						value = evt.MakeResponse();
 					}
-					else
-					{
+					else {
 						Resource rsc = new Resource(this, header);
 						value = rsc.MakeResponse();
 					}
 				}
-				else if (header["_METHOD_"] == "NOTIFY")
-				{
+				else if (header["_METHOD_"] == "NOTIFY") {
 					Notify ntf = new Notify(this, header);
 					ntf.ReceiveEvent();
 				}
 			}
 
-			Dictionary<string, string> response = new Dictionary<string, string>();
-			response["_PROTOCOL_"] = Shiori.PROTOCOL;
-			response["_VERSION_"] = Shiori.VERSION;
 			response["_STATUS_"] = (value != "") ? Protocol.STATUS_OK : Protocol.STATUS_NO_CONTENT;
 			response["_STRING_"] = (value != "") ? Protocol.STRING_OK : Protocol.STRING_NO_CONTENT;
-			response["Sender"] = Shiori.SENDER;
-			response["Charset"] = Shiori.CHARSET;
-			if (value != "")
-			{
+			if (value != "") {
 				response["Value"] = value;
 			}
 			string r = Header.Create(response);

@@ -15,7 +15,7 @@ file,ghost/master/src/Event.csab79ed2ecc794682f11495466b58aef4size=27896date=
 file,ghost/master/src/EventBase.cs1d968ed7fec154226ce695b679fce6d0size=3795date=2012-12-21T00:00:00
 file,ghost/master/src/Notify.csa4cd1f2507e648196b745cb140ee1616size=1350date=2012-12-21T00:00:00
 file,ghost/master/src/Resource.csc6b7239b8af4e00dcf8891420f7c39bbsize=3213date=2012-12-21T00:00:00
-file,ghost/master/src/Shiori.csd1c08a25e21706ce76687de83e90b0e8size=10882date=2012-12-21T00:00:00
+file,ghost/master/src/Shiori.csfcd162048c4e7cef990daaa85312b5b7size=11750date=2012-12-21T00:00:00
 file,ghost/master/src/events/OnAnchorSelect.cs17aee26f870995eefb0c10bcbceb35a0size=220date=2012-12-21T00:00:00
 file,ghost/master/src/events/OnChoiceSelect.csbbcf4e6242e18b901bdf338389e7ba8fsize=461date=2012-12-21T00:00:00
 file,ghost/master/src/events/OnChoiceSelectEx.cs97390f3258d3a2871aa32acdeb1791f8size=807date=2012-12-21T00:00:00

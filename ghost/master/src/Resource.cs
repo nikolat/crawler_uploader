@@ -80,7 +80,7 @@ namespace Ukagaka.NET
 		{
 			string value = "";
 			List<string[]> sites = new List<string[]>();
-			sites.Add(new string[] { "Disc-2", "http://disc2.s56.xrea.com/", "disc_2.gif" });
+			sites.Add(new string[] { "うかフィード", "https://feed.ukagaka.net/", "-" });
 			foreach (string[] site in sites)
 			{
 				value += string.Join("\x01", site) + "\x01\x02";

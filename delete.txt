@@ -1,1 +1,3 @@
 shell\master\element-ie.png
+ghost\master\banner\disc_2.gif
+ghost\master\banner\sirefaso.png

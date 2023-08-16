@@ -1,9 +1,7 @@
 charset,UTF-8
-file,delete.txt0297e1a601733ba7ed6aed5a3cdcfdd9size=28date=2012-12-21T00:00:00
+file,delete.txt30abd06f13dfac91267af2f91c8230d1size=92date=2012-12-21T00:00:00
 file,ghost/master/Ukagaka.NET.Interfaces.dll779aa9d7498b66ab303f215a334dff86size=16384date=2012-12-21T00:00:00
-file,ghost/master/banner/disc_2.gif7d63dcabe97b3fd647014eb68b1425c2size=4363date=2012-12-21T00:00:00
 file,ghost/master/banner/nar_up.pnrb6274df8e4c63842773cbcc957de1422size=6825date=2012-12-21T00:00:00
-file,ghost/master/banner/sirefaso.png7f6b2d378280cd8c5417b28dbf7e69fdsize=2285date=2012-12-21T00:00:00
 file,ghost/master/banner/viprpg.png76a33ca50513d49069a771a5647112aasize=6199date=2012-12-21T00:00:00
 file,ghost/master/descript.txt2db8d6cebd9151dc57ced69b72ded992size=308date=2012-12-21T00:00:00
 file,ghost/master/dnproxy.dllc5b22092ed2e14ca0fbf552596151a0fsize=28672date=2012-12-21T00:00:00
@@ -14,7 +12,7 @@ file,ghost/master/icon.icodaaf61d1d668608459ecc5494a46ce60size=7406date=2012-
 file,ghost/master/src/Event.csab79ed2ecc794682f11495466b58aef4size=27896date=2012-12-21T00:00:00
 file,ghost/master/src/EventBase.cs1d968ed7fec154226ce695b679fce6d0size=3795date=2012-12-21T00:00:00
 file,ghost/master/src/Notify.csa4cd1f2507e648196b745cb140ee1616size=1350date=2012-12-21T00:00:00
-file,ghost/master/src/Resource.csc6b7239b8af4e00dcf8891420f7c39bbsize=3213date=2012-12-21T00:00:00
+file,ghost/master/src/Resource.cs45606de57352cfae50c452c39987e60bsize=3215date=2012-12-21T00:00:00
 file,ghost/master/src/Shiori.csfcd162048c4e7cef990daaa85312b5b7size=11750date=2012-12-21T00:00:00
 file,ghost/master/src/events/OnAnchorSelect.cs17aee26f870995eefb0c10bcbceb35a0size=220date=2012-12-21T00:00:00
 file,ghost/master/src/events/OnChoiceSelect.csbbcf4e6242e18b901bdf338389e7ba8fsize=461date=2012-12-21T00:00:00
